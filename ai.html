@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Lab — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.tool-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;transition:all 0.25s;text-decoration:none;display:block;color:var(--text);}
+.tool-card:hover{border-color:rgba(255,26,26,0.3);transform:translateY(-4px);box-shadow:0 14px 45px rgba(255,0,0,0.1);}
+.tool-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.tool-ico{width:44px;height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.tool-name{font-family:var(--font-display);font-size:0.95rem;color:#fff;}
+.tool-desc{font-size:12px;color:#3a3a3a;line-height:1.6;margin-bottom:12px;}
+.tool-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.ttag{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:6px;background:var(--bg3);color:#333;border:1px solid var(--border);}
+</style>
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="El Diablito">DIABLITO HUB</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li><li><a href="smoke.html">Shop</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="games.html">Gaming</a></li><li><a href="ai.html" class="active">AI Lab</a></li><li><a href="movies.html">Movies</a></li><li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="hero" style="padding-bottom:30px;">
+    <p class="hero-eyebrow">Local + Online · Free Tools · Cutting Edge</p>
+    <h1 class="hero-title"><span class="outline">AI</span><span class="solid">LAB</span></h1>
+    <p class="hero-sub">The Future Is Here — And It's Free</p>
+    <div class="hero-badges"><span class="badge badge-blue">🤖 Online</span><span class="badge badge-live"><span class="pulse"></span>Active</span><span class="badge badge-gold">💻 Local AI</span></div>
+  </div>
+  <div class="section">
+    <p class="section-label fu">// Tools We Use & Recommend</p>
+    <h2 class="section-title fu" style="margin-bottom:6px;">AI <span>Tools</span></h2>
+    <p class="section-sub fu" style="margin-bottom:24px;">Online and local AI — all free or very low cost</p>
+    <div class="grid-3" style="margin-bottom:50px;">
+      <a class="tool-card fu1" href="https://claude.ai" target="_blank"><div class="tool-head"><div class="tool-ico">🧠</div><div><div class="tool-name">Claude (Anthropic)</div><span class="badge badge-live" style="font-size:9px">Online</span></div></div><div class="tool-desc">Brilliant AI assistant for writing, coding, research, creative work and complex reasoning. One of the most capable AI models available today.</div><div class="tool-tags"><span class="ttag">Chat</span><span class="ttag">Writing</span><span class="ttag">Code</span><span class="ttag">Research</span></div></a>
+      <a class="tool-card fu2" href="https://chat.openai.com" target="_blank"><div class="tool-head"><div class="tool-ico">⚡</div><div><div class="tool-name">ChatGPT</div><span class="badge badge-live" style="font-size:9px">Online</span></div></div><div class="tool-desc">OpenAI's flagship AI model. Excellent all-rounder for any task — writing, analysis, coding, image generation with GPT-4o.</div><div class="tool-tags"><span class="ttag">Chat</span><span class="ttag">Images</span><span class="ttag">Vision</span><span class="ttag">Code</span></div></a>
+      <a class="tool-card fu3" href="https://ollama.ai" target="_blank"><div class="tool-head"><div class="tool-ico">💻</div><div><div class="tool-name">Ollama</div><span class="badge badge-blue" style="font-size:9px">Local</span></div></div><div class="tool-desc">Run powerful AI models 100% offline on your own machine. Complete privacy, no internet required, no cost per message. RTX 3070 makes it fast.</div><div class="tool-tags"><span class="ttag">Local</span><span class="ttag">Private</span><span class="ttag">Free</span><span class="ttag">Offline</span></div></a>
+      <a class="tool-card fu4" href="https://huggingface.co/spaces" target="_blank"><div class="tool-head"><div class="tool-ico">🤗</div><div><div class="tool-name">HuggingFace</div><span class="badge badge-live" style="font-size:9px">Online</span></div></div><div class="tool-desc">Thousands of free AI demos and models. Image generation, audio, text, translation and more — all in the browser.</div><div class="tool-tags"><span class="ttag">Models</span><span class="ttag">Images</span><span class="ttag">Audio</span><span class="ttag">Free</span></div></a>
+      <a class="tool-card fu5" href="https://stability.ai" target="_blank"><div class="tool-head"><div class="tool-ico">🎨</div><div><div class="tool-name">Stable Diffusion</div><span class="badge badge-blue" style="font-size:9px">Local</span></div></div><div class="tool-desc">Generate stunning AI art and images locally on your GPU. The RTX 3070 runs Stable Diffusion fast — perfect for album covers, logos and creative work.</div><div class="tool-tags"><span class="ttag">Images</span><span class="ttag">Art</span><span class="ttag">Local</span><span class="ttag">RTX 3070</span></div></a>
+      <a class="tool-card fu6" href="https://www.gradio.app" target="_blank"><div class="tool-head"><div class="tool-ico">🎛️</div><div><div class="tool-name">Gradio</div><span class="badge badge-soon" style="font-size:9px">Coming</span></div></div><div class="tool-desc">Build and share AI demos fast with Python. We'll be hosting our own custom Gradio AI apps right here on Diablito Hub — stay tuned!</div><div class="tool-tags"><span class="ttag">Python</span><span class="ttag">Demos</span><span class="ttag">Deploy</span><span class="ttag">Free</span></div></a>
+    </div>
+  </div>
+</div>
+<footer><p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p></footer>
+</div>
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head"><img class="chat-avatar" src="logo.png" alt="El Diablito"><div style="flex:1"><div class="chat-name">El Diablito 😈</div><div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div></div><button class="chat-close" id="chat-close">✕</button></div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="What AI tools do you use?">AI Tools</button>
+      <button class="qbtn" data-q="What is Ollama local AI?">Local AI</button>
+      <button class="qbtn" data-q="How do I place an order?">Smoke Shop</button>
+      <button class="qbtn" data-q="Tell me about the Music Studio">Studio</button>
+    </div>
+    <div class="chat-input-row"><input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything..."><button class="chat-send" id="chat-send">➤</button></div>
+  </div>
+  <div style="position:relative;"><div class="bot-bubble">Ask Me 🔥</div><button id="mascot-btn"><img src="logo.png" alt="El Diablito"></button></div>
+</div>
+<script src="diablito-bot.js"></script>
+</body></html>
