@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaming Zone — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.rig{background:var(--bg2);border:1px solid rgba(255,26,26,0.2);border-radius:18px;padding:26px;margin-bottom:32px;position:relative;overflow:hidden;}
+.rig::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);}
+.rig-title{font-family:var(--font-display);font-size:1.3rem;color:var(--red);margin-bottom:18px;}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+.spec{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.spec-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#333;margin-bottom:4px;}
+.spec-val{font-size:14px;font-weight:600;color:#e8e8e8;}
+.spec-val.r{color:var(--red);}
+.game-row{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start;transition:all 0.2s;}
+.game-row:hover{border-color:rgba(255,26,26,0.25);transform:translateX(4px);}
+.gi{width:52px;height:52px;border-radius:12px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.gt{font-weight:700;font-size:0.9rem;margin-bottom:3px;}
+.gd{font-size:11px;color:#3a3a3a;line-height:1.5;margin-bottom:8px;}
+.fps-row{display:flex;align-items:center;gap:10px;}
+.fps-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+.fps-fill{height:100%;background:var(--red);border-radius:2px;}
+.fps-lbl{font-size:11px;color:var(--red);font-weight:700;white-space:nowrap;}
+</style>
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="El Diablito">DIABLITO HUB</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li><li><a href="smoke.html">Shop</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="games.html" class="active">Gaming</a></li><li><a href="ai.html">AI Lab</a></li><li><a href="movies.html">Movies</a></li><li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="hero" style="padding-bottom:30px;">
+    <p class="hero-eyebrow">RTX 3070 Powered · High FPS · Real Reviews</p>
+    <h1 class="hero-title"><span class="outline">GAMING</span><span class="solid">ZONE</span></h1>
+    <p class="hero-sub">Benchmarks · Reviews · Builds</p>
+    <div class="hero-badges"><span class="badge badge-blue">🎮 RTX 3070</span><span class="badge badge-live"><span class="pulse"></span>Active</span><span class="badge badge-gold">⚡ High FPS</span></div>
+  </div>
+  <div class="section">
+    <div class="rig fu">
+      <div class="rig-title">⚡ Diablito's Rig</div>
+      <div class="specs">
+        <div class="spec"><div class="spec-lbl">GPU</div><div class="spec-val r">RTX 3070</div></div>
+        <div class="spec"><div class="spec-lbl">VRAM</div><div class="spec-val">8 GB GDDR6</div></div>
+        <div class="spec"><div class="spec-lbl">Ray Tracing</div><div class="spec-val">✅ On</div></div>
+        <div class="spec"><div class="spec-lbl">DLSS</div><div class="spec-val">✅ Supported</div></div>
+        <div class="spec"><div class="spec-lbl">Resolution</div><div class="spec-val">1440p</div></div>
+        <div class="spec"><div class="spec-lbl">Status</div><div class="spec-val r">🟢 Online</div></div>
+      </div>
+    </div>
+    <p class="section-label fu">// What's Running</p>
+    <h2 class="section-title fu" style="margin-bottom:6px;">Current <span>Games</span></h2>
+    <p class="section-sub fu" style="margin-bottom:24px;">Live benchmarks from the RTX 3070 rig</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="game-row fu1"><div class="gi">🌌</div><div style="flex:1"><div class="gt">Cyberpunk 2077</div><div class="gd">Ultra + path tracing. Night City looks insane on the 3070.</div><div class="fps-row"><div class="fps-bar"><div class="fps-fill" style="width:75%"></div></div><span class="fps-lbl">~90 FPS</span></div></div></div>
+      <div class="game-row fu2"><div class="gi">🔫</div><div style="flex:1"><div class="gt">Warzone</div><div class="gd">Competitive settings, max FPS mode. Smooth and responsive.</div><div class="fps-row"><div class="fps-bar"><div class="fps-fill" style="width:95%"></div></div><span class="fps-lbl">~150 FPS</span></div></div></div>
+      <div class="game-row fu3"><div class="gi">⚔️</div><div style="flex:1"><div class="gt">Elden Ring</div><div class="gd">High settings with mods. FromSoftware perfection.</div><div class="fps-row"><div class="fps-bar"><div class="fps-fill" style="width:80%"></div></div><span class="fps-lbl">~60 FPS locked</span></div></div></div>
+      <div class="game-row fu4"><div class="gi">🏎️</div><div style="flex:1"><div class="gt">Forza Horizon 5</div><div class="gd">Mexico vibes — ultra 4K textures. Stunning open world.</div><div class="fps-row"><div class="fps-bar"><div class="fps-fill" style="width:88%"></div></div><span class="fps-lbl">~110 FPS</span></div></div></div>
+      <div class="game-row fu5"><div class="gi">🕹️</div><div style="flex:1"><div class="gt">Spider-Man 2</div><div class="gd">Ray traced reflections, ultra textures. Web swinging has never been smoother.</div><div class="fps-row"><div class="fps-bar"><div class="fps-fill" style="width:82%"></div></div><span class="fps-lbl">~100 FPS</span></div></div></div>
+    </div>
+  </div>
+</div>
+<footer><p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p></footer>
+</div>
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head"><img class="chat-avatar" src="logo.png" alt="El Diablito"><div style="flex:1"><div class="chat-name">El Diablito 😈</div><div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div></div><button class="chat-close" id="chat-close">✕</button></div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="Tell me about the RTX 3070 gaming rig">About the rig</button>
+      <button class="qbtn" data-q="What games do you recommend?">Game recs</button>
+      <button class="qbtn" data-q="How do I place an order?">Smoke Shop</button>
+      <button class="qbtn" data-q="Tell me about the Music Studio">Studio</button>
+    </div>
+    <div class="chat-input-row"><input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything..."><button class="chat-send" id="chat-send">➤</button></div>
+  </div>
+  <div style="position:relative;"><div class="bot-bubble">Ask Me 🔥</div><button id="mascot-btn"><img src="logo.png" alt="El Diablito"></button></div>
+</div>
+<script src="diablito-bot.js"></script>
+</body>
+</html>
