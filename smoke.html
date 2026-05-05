@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smoke Shop — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;}
+.product-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all 0.25s;cursor:pointer;}
+.product-card:hover{border-color:rgba(255,26,26,0.3);transform:translateY(-4px);box-shadow:0 14px 45px rgba(255,0,0,0.1);}
+.product-img{height:130px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:50px;border-bottom:1px solid var(--border);position:relative;}
+.product-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,26,26,0.1) 0%,transparent 70%);}
+.product-body{padding:16px;}
+.product-name{font-family:var(--font-display);font-size:1rem;color:#fff;margin-bottom:5px;}
+.product-desc{font-size:12px;color:#3a3a3a;line-height:1.55;margin-bottom:14px;}
+.product-footer{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-family:var(--font-display);font-size:1rem;color:var(--gold);text-shadow:0 0 10px rgba(255,204,0,0.2);}
+.ask-btn{background:transparent;border:1px solid rgba(255,26,26,0.25);color:var(--red);border-radius:8px;padding:5px 13px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+.ask-btn:hover{background:rgba(255,26,26,0.1);border-color:var(--red);}
+.info-bar{background:var(--bg2);border:1px solid rgba(255,26,26,0.15);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:12px;margin-bottom:30px;color:#555;font-size:13px;line-height:1.6;}
+.social-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:50px;}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:12px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--border);background:var(--bg3);color:#555;transition:all 0.2s;font-family:var(--font-body);}
+.social-btn:hover{transform:translateY(-2px);}
+.social-btn.ig:hover{border-color:rgba(225,48,108,0.4);color:#e1306c;}
+.social-btn.tt:hover{border-color:rgba(0,242,234,0.4);color:#00f2ea;}
+.social-btn.fb:hover{border-color:rgba(24,119,242,0.4);color:#1877f2;}
+.social-btn.wa:hover{border-color:rgba(37,211,102,0.4);color:#25d366;}
+.loc-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px;}
+.loc-card::before{content:'';display:block;grid-column:1/-1;height:1px; /* not used */}
+.loc-section p:first-child{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#333;margin-bottom:6px;}
+.loc-section p:last-child{font-family:var(--font-cond);font-size:1.1rem;font-weight:700;color:#e8e8e8;}
+.loc-section p.red{color:var(--red);}
+@media(max-width:600px){.loc-card{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="El Diablito">DIABLITO HUB</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html" class="active">Shop</a></li>
+    <li><a href="studio.html">Studio</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="hero" style="padding-bottom:30px;">
+    <p class="hero-eyebrow">Premium Products · Best Prices · Real Ones Only</p>
+    <h1 class="hero-title"><span class="outline">SMOKE</span><span class="solid">SHOP</span></h1>
+    <p class="hero-sub">Tijuana's #1 Smoke Shop</p>
+    <div class="hero-badges">
+      <span class="badge badge-live"><span class="pulse"></span>Open Now</span>
+      <span class="badge badge-hot">🔥 Best Prices in TJ</span>
+      <span class="badge badge-gold">⭐ Top Rated</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="info-bar fu">
+      <span style="font-size:22px;flex-shrink:0;">📍</span>
+      <span>We're located in <strong style="color:var(--text)">Tijuana, BC</strong>. DM us on any social media for our exact address, hours, and to place an order. We always respond quickly and respectfully! 🙏</span>
+    </div>
+
+    <p style="text-align:center;margin-bottom:16px;" class="fu">
+      <strong style="font-family:var(--font-display);font-size:1rem;color:#555;letter-spacing:1px;">FIND US ON SOCIAL MEDIA</strong>
+    </p>
+    <div class="social-row fu1">
+      <a class="social-btn ig" href="#">📸 Instagram</a>
+      <a class="social-btn tt" href="#">🎵 TikTok</a>
+      <a class="social-btn fb" href="#">👤 Facebook</a>
+      <a class="social-btn wa" href="#">💬 WhatsApp</a>
+    </div>
+
+    <div style="margin-bottom:28px;" class="fu">
+      <p class="section-label">// What We Carry</p>
+      <h2 class="section-title">Our <span>Products</span></h2>
+      <p class="section-sub">Premium selection updated regularly — DM us for current stock & pricing</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card fu1"><div class="product-img">💨</div><div class="product-body"><div class="product-name">Premium Vapes</div><div class="product-desc">Top brands, all flavors. Elf Bar, Geek Bar, Lost Mary and more. Ask for current stock.</div><div class="product-footer"><span class="product-price">ASK US</span><button class="ask-btn">Get Price</button></div></div></div>
+      <div class="product-card fu2"><div class="product-img">🌿</div><div class="product-body"><div class="product-name">Rolling Papers</div><div class="product-desc">RAW, Zig-Zag, Elements, OCB and more. All sizes and styles available.</div><div class="product-footer"><span class="product-price">ASK US</span><button class="ask-btn">Get Price</button></div></div></div>
+      <div class="product-card fu3"><div class="product-img">🔥</div><div class="product-body"><div class="product-name">Lighters & Torches</div><div class="product-desc">Clipper, Zippo, BIC and butane torch lighters for every need.</div><div class="product-footer"><span class="product-price">ASK US</span><button class="ask-btn">Get Price</button></div></div></div>
+      <div class="product-card fu4"><div class="product-img">💎</div><div class="product-body"><div class="product-name">Glass Pieces</div><div class="product-desc">Hand pipes, spoons, bubblers and custom glass pieces. Quality guaranteed.</div><div class="product-footer"><span class="product-price">ASK US</span><button class="ask-btn">Get Price</button></div></div></div>
+      <div class="product-card fu5"><div class="product-img">🪄</div><div class="product-body"><div class="product-name">Accessories</div><div class="product-desc">Grinders, rolling trays, storage jars, cases and cleaning kits.</div><div class="product-footer"><span class="product-price">ASK US</span><button class="ask-btn">Get Price</button></div></div></div>
+      <div class="product-card fu6"><div class="product-img">🛒</div><div class="product-body"><div class="product-name">Special Orders</div><div class="product-desc">Don't see what you need? We'll source it for you. No problem is too big!</div><div class="product-footer"><span class="product-price">CUSTOM</span><button class="ask-btn">Contact Us</button></div></div></div>
+    </div>
+
+    <div class="loc-card fu" style="position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);"></div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="loc-section"><p>📍 Location</p><p class="red" style="font-size:1.4rem;">Tijuana, BC Mexico</p></div>
+        <div class="loc-section"><p>🕙 Hours</p><p>Mon–Sat: 10am – 10pm</p></div>
+        <div class="loc-section"><p>📅 Sunday</p><p>12pm – 8pm</p></div>
+        <div class="loc-section"><p>📱 Best Way to Reach Us</p><p>Instagram · WhatsApp · TikTok</p></div>
+      </div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:60px;min-height:160px;">🗺️</div>
+    </div>
+  </div>
+</div>
+<footer><p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p></footer>
+</div>
+
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head"><img class="chat-avatar" src="logo.png" alt="El Diablito"><div style="flex:1"><div class="chat-name">El Diablito 😈</div><div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div></div><button class="chat-close" id="chat-close">✕</button></div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="How do I place an order?">How to order?</button>
+      <button class="qbtn" data-q="What products do you carry?">Products</button>
+      <button class="qbtn" data-q="Where are you located?">Location</button>
+      <button class="qbtn" data-q="What are your hours?">Hours</button>
+      <button class="qbtn" data-q="What is your price?">Pricing</button>
+    </div>
+    <div class="chat-input-row"><input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything..."><button class="chat-send" id="chat-send">➤</button></div>
+  </div>
+  <div style="position:relative;"><div class="bot-bubble">Ask Me 🔥</div><button id="mascot-btn"><img src="logo.png" alt="El Diablito"></button></div>
+</div>
+<script src="diablito-bot.js"></script>
+</body>
+</html>
