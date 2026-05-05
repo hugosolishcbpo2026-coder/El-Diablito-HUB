@@ -1,0 +1,40 @@
+<!--
+PASTE THIS BLOCK BEFORE </body> ON EVERY PAGE
+Replace LOGO_PATH with the correct path to the logo image.
+-->
+
+<!-- MATRIX CANVAS -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- EL DIABLITO CHATBOT -->
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head">
+      <img class="chat-avatar" src="LOGO_PATH" alt="El Diablito">
+      <div style="flex:1">
+        <div class="chat-name">El Diablito 😈</div>
+        <div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="How do I place an order?">How to order?</button>
+      <button class="qbtn" data-q="What products do you carry?">Products</button>
+      <button class="qbtn" data-q="Where are you located?">Location</button>
+      <button class="qbtn" data-q="Tell me about the Music Studio">Studio</button>
+      <button class="qbtn" data-q="What are your hours?">Hours</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything...">
+      <button class="chat-send" id="chat-send">➤</button>
+    </div>
+  </div>
+  <div style="position:relative;">
+    <div class="bot-bubble">Ask Me 🔥</div>
+    <button id="mascot-btn">
+      <img src="LOGO_PATH" alt="El Diablito">
+    </button>
+  </div>
+</div>
+<script src="diablito-bot.js"></script>
