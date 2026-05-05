@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Studio — Diablito Hub</title>
+<meta name="description" content="Diablito Music Studio — Record beats, create music, collaborate with TJ artists. FL Studio, BandLab, Audacity and more.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* STUDIO HERO */
+.studio-hero{
+  padding:80px 24px 50px;text-align:center;position:relative;overflow:hidden;
+}
+.studio-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,26,26,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.studio-title{
+  font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);
+  line-height:0.95;margin-bottom:12px;
+}
+.studio-title .line1{display:block;color:transparent;-webkit-text-stroke:2px var(--red);text-shadow:0 0 40px rgba(255,0,68,0.2);}
+.studio-title .line2{display:block;color:#fff;text-shadow:0 0 50px rgba(255,26,26,0.3);animation:flicker 6s 2s ease-in-out infinite;}
+
+/* WAVEFORM ANIMATION */
+.waveform{
+  display:flex;align-items:center;justify-content:center;gap:3px;
+  height:50px;margin:20px auto;
+}
+.wave-bar{
+  width:4px;border-radius:2px;background:var(--red);
+  animation:wave 1.2s ease-in-out infinite alternate;
+  box-shadow:0 0 6px rgba(255,26,26,0.4);
+}
+.wave-bar:nth-child(1){height:15px;animation-delay:0s;}
+.wave-bar:nth-child(2){height:30px;animation-delay:0.1s;}
+.wave-bar:nth-child(3){height:45px;animation-delay:0.2s;}
+.wave-bar:nth-child(4){height:25px;animation-delay:0.15s;}
+.wave-bar:nth-child(5){height:40px;animation-delay:0.05s;}
+.wave-bar:nth-child(6){height:50px;animation-delay:0.25s;}
+.wave-bar:nth-child(7){height:35px;animation-delay:0.1s;}
+.wave-bar:nth-child(8){height:45px;animation-delay:0.3s;}
+.wave-bar:nth-child(9){height:20px;animation-delay:0.18s;}
+.wave-bar:nth-child(10){height:38px;animation-delay:0.08s;}
+.wave-bar:nth-child(11){height:50px;animation-delay:0.22s;}
+.wave-bar:nth-child(12){height:28px;animation-delay:0.12s;}
+.wave-bar:nth-child(13){height:42px;animation-delay:0.28s;}
+.wave-bar:nth-child(14){height:18px;animation-delay:0.06s;}
+.wave-bar:nth-child(15){height:35px;animation-delay:0.16s;}
+@keyframes wave{from{transform:scaleY(0.4);}to{transform:scaleY(1);}}
+
+/* DAW TOOL CARDS */
+.daw-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;transition:all 0.25s;text-decoration:none;display:block;color:var(--text);
+}
+.daw-card:hover{border-color:rgba(255,26,26,0.35);transform:translateY(-5px);box-shadow:0 16px 50px rgba(255,0,0,0.1);}
+.daw-top{
+  height:110px;display:flex;align-items:center;justify-content:center;
+  font-size:46px;background:var(--bg3);border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+}
+.daw-top::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,26,26,0.1) 0%,transparent 70%);}
+.daw-type{
+  position:absolute;top:10px;right:12px;
+  font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 9px;border-radius:10px;
+}
+.type-free{background:rgba(46,216,122,0.1);color:var(--green);border:1px solid rgba(46,216,122,0.2);}
+.type-paid{background:rgba(255,204,0,0.1);color:var(--gold);border:1px solid rgba(255,204,0,0.2);}
+.type-browser{background:rgba(100,160,255,0.1);color:#78aaff;border:1px solid rgba(100,160,255,0.2);}
+.daw-body{padding:18px;}
+.daw-name{font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:5px;letter-spacing:0.3px;}
+.daw-desc{font-size:12px;color:#454545;line-height:1.6;margin-bottom:14px;}
+.daw-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.dtag{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:6px;background:var(--bg3);color:#333;border:1px solid var(--border);}
+.daw-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 18px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:0.5px;
+  text-decoration:none;cursor:pointer;transition:all 0.2s;border:none;font-family:var(--font-body);
+  width:100%;justify-content:center;
+}
+.daw-btn-primary{background:var(--red);color:#fff;}
+.daw-btn-primary:hover{background:var(--red2);transform:scale(1.02);}
+.daw-btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
+.daw-btn-outline:hover{border-color:rgba(255,26,26,0.4);color:var(--red);}
+
+/* ARTIST COMMUNITY */
+.community-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:18px;
+  padding:24px;transition:all 0.25s;
+}
+.community-card:hover{border-color:rgba(255,26,26,0.25);}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{
+  display:flex;gap:18px;padding:20px 0;
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.step:last-child{border-bottom:none;}
+.step-num{
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
+  background:rgba(255,26,26,0.08);border:1px solid rgba(255,26,26,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:1rem;color:var(--red);
+}
+.step-title{font-weight:700;font-size:0.95rem;color:#e8e8e8;margin-bottom:4px;}
+.step-desc{font-size:12px;color:#444;line-height:1.6;}
+
+/* COLLAB BANNER */
+.collab-banner{
+  background:var(--bg2);border:1px solid rgba(255,26,26,0.2);border-radius:20px;
+  padding:32px 28px;text-align:center;position:relative;overflow:hidden;
+  margin-top:50px;
+}
+.collab-banner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),var(--gold),var(--red),transparent);
+}
+.collab-title{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2rem);color:#fff;margin-bottom:10px;}
+.collab-title span{color:var(--red);}
+.collab-desc{color:#555;max-width:500px;margin:0 auto 24px;font-size:0.9rem;line-height:1.7;}
+.social-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.social-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:12px;font-size:13px;font-weight:600;
+  text-decoration:none;cursor:pointer;border:1px solid var(--border);
+  background:var(--bg3);color:#555;transition:all 0.2s;font-family:var(--font-body);
+}
+.social-btn:hover{transform:translateY(-2px);}
+.social-btn.ig:hover{border-color:rgba(225,48,108,0.4);color:#e1306c;}
+.social-btn.tt:hover{border-color:rgba(0,242,234,0.4);color:#00f2ea;}
+.social-btn.wa:hover{border-color:rgba(37,211,102,0.4);color:#25d366;}
+</style>
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="El Diablito">
+    DIABLITO HUB
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="studio.html" class="active">Studio</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="studio-hero">
+    <p class="hero-eyebrow fu">🎤 Diablito Music Studio — Tijuana, BC</p>
+    <h1 class="studio-title fu1">
+      <span class="line1">MUSIC</span>
+      <span class="line2">STUDIO</span>
+    </h1>
+    <p class="hero-sub fu2">Create · Record · Collaborate · Release</p>
+    <div class="waveform fu3">
+      <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+    </div>
+    <p class="hero-desc fu3">A space for TJ artists, rappers and producers to create, collaborate and share music. All tools are free or low-cost — because talent shouldn't have a paywall.</p>
+    <div class="hero-badges fu4">
+      <span class="badge badge-live"><span class="pulse"></span>Open to All Artists</span>
+      <span class="badge badge-hot">🔥 TJ Music Scene</span>
+      <span class="badge badge-gold">🎤 Rap · Beats · Production</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <!-- DAW TOOLS -->
+    <div class="section-header fu">
+      <p class="section-label">// Your Studio Arsenal</p>
+      <h2 class="section-title">Music <span>Production Tools</span></h2>
+      <p class="section-sub">The best DAWs and tools — from free browser apps to industry-standard software</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:50px;">
+
+      <!-- FL Studio -->
+      <div class="daw-card fu1">
+        <div class="daw-top">
+          🎛️
+          <span class="daw-type type-paid">Industry Standard</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">FL Studio</div>
+          <div class="daw-desc">The most popular DAW for hip-hop and trap producers worldwide. Powerful beat sequencer, mixer, and plugin ecosystem. Used by Metro Boomin, Southside, and thousands of top producers.</div>
+          <div class="daw-tags">
+            <span class="dtag">Beats</span><span class="dtag">Hip-Hop</span><span class="dtag">Trap</span><span class="dtag">Mixing</span><span class="dtag">Windows/Mac</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://www.image-line.com/fl-studio/" target="_blank">→ Get FL Studio</a>
+        </div>
+      </div>
+
+      <!-- BandLab -->
+      <div class="daw-card fu2">
+        <div class="daw-top">
+          🌐
+          <span class="daw-type type-browser">100% Free</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">BandLab</div>
+          <div class="daw-desc">A fully free, browser-based DAW — no download needed. Record, mix, add effects, collaborate with other artists in real time. Perfect for getting started or working remotely with your crew.</div>
+          <div class="daw-tags">
+            <span class="dtag">Free</span><span class="dtag">Browser</span><span class="dtag">Collab</span><span class="dtag">Recording</span><span class="dtag">Beats</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://www.bandlab.com" target="_blank">→ Open BandLab Free</a>
+        </div>
+      </div>
+
+      <!-- Audacity -->
+      <div class="daw-card fu3">
+        <div class="daw-top">
+          🎙️
+          <span class="daw-type type-free">Free & Open Source</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">Audacity</div>
+          <div class="daw-desc">The go-to free audio editor for recording and post-production. Record vocals, clean up audio, remove noise, edit tracks and export in any format. Simple, powerful and completely free.</div>
+          <div class="daw-tags">
+            <span class="dtag">Free</span><span class="dtag">Vocals</span><span class="dtag">Recording</span><span class="dtag">Editing</span><span class="dtag">All OS</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://www.audacityteam.org" target="_blank">→ Download Audacity</a>
+        </div>
+      </div>
+
+      <!-- GarageBand -->
+      <div class="daw-card fu4">
+        <div class="daw-top">
+          🍎
+          <span class="daw-type type-free">Free (Mac/iOS)</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">GarageBand</div>
+          <div class="daw-desc">Apple's free DAW — surprisingly powerful for beat making, recording and mixing. Comes with hundreds of loops, instruments and effects. If you have a Mac or iPhone, this is already on your device.</div>
+          <div class="daw-tags">
+            <span class="dtag">Free</span><span class="dtag">Mac</span><span class="dtag">iOS</span><span class="dtag">Beats</span><span class="dtag">Loops</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://www.apple.com/mac/garageband/" target="_blank">→ Get GarageBand</a>
+        </div>
+      </div>
+
+      <!-- LMMS -->
+      <div class="daw-card fu5">
+        <div class="daw-top">
+          🎹
+          <span class="daw-type type-free">Free & Open Source</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">LMMS</div>
+          <div class="daw-desc">A free, open-source FL Studio alternative. Beat editor, piano roll, synthesizers and effects all built in. Great for producers who want pro tools without the price tag.</div>
+          <div class="daw-tags">
+            <span class="dtag">Free</span><span class="dtag">Beat Editor</span><span class="dtag">Synths</span><span class="dtag">Windows/Mac/Linux</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://lmms.io" target="_blank">→ Download LMMS</a>
+        </div>
+      </div>
+
+      <!-- Chrome Music Lab -->
+      <div class="daw-card fu6">
+        <div class="daw-top">
+          🎨
+          <span class="daw-type type-browser">Free Browser</span>
+        </div>
+        <div class="daw-body">
+          <div class="daw-name">Chrome Music Lab</div>
+          <div class="daw-desc">Google's free browser music tool — great for experimenting with melodies, rhythms and song structure. No download, works on any device. Perfect for quick ideas and creative experimentation.</div>
+          <div class="daw-tags">
+            <span class="dtag">Free</span><span class="dtag">Browser</span><span class="dtag">Melody</span><span class="dtag">Experiments</span>
+          </div>
+          <a class="daw-btn daw-btn-primary" href="https://musiclab.chromeexperiments.com" target="_blank">→ Open Music Lab</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MORE RESOURCES -->
+    <div class="section-header fu">
+      <p class="section-label">// Level Up Your Sound</p>
+      <h2 class="section-title">More <span>Resources</span></h2>
+      <p class="section-sub">Free loops, samples, plugins and learning tools</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:50px;">
+      <a class="card fu1" href="https://splice.com/sounds" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">🎵</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">Splice Sounds</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">Millions of free & paid samples, loops and one-shots. The largest sound library on the internet. Essential for beat makers.</div>
+          </div>
+        </div>
+      </a>
+      <a class="card fu2" href="https://www.looperman.com" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">🔁</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">Looperman</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">100% free loops, acapellas and samples uploaded by artists worldwide. Great for finding unique sounds.</div>
+          </div>
+        </div>
+      </a>
+      <a class="card fu3" href="https://freesound.org" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">🔊</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">Freesound</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">Open community of free sound effects, samples and field recordings. Perfect for unique sound design.</div>
+          </div>
+        </div>
+      </a>
+      <a class="card fu4" href="https://www.musictheory.net" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">📖</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">Music Theory</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">Free music theory lessons online. Learn scales, chords, progressions — the foundation of every great track.</div>
+          </div>
+        </div>
+      </a>
+      <a class="card fu5" href="https://distrokid.com" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">🚀</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">DistroKid</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">Release your music to Spotify, Apple Music, YouTube Music and 150+ platforms. Low yearly fee, keep 100% of royalties.</div>
+          </div>
+        </div>
+      </a>
+      <a class="card fu6" href="https://www.soundtrap.com" target="_blank">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;flex-shrink:0;">🎧</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1rem;margin-bottom:4px;">Soundtrap</div>
+            <div style="font-size:12px;color:#444;line-height:1.5;">Browser DAW with real-time collaboration. Record with your artist friends online at the same time from anywhere.</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- HOW TO GET STARTED -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:50px;">
+      <div class="community-card fu">
+        <p class="section-label" style="margin-bottom:12px;">// Start Today</p>
+        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:20px;">How to Get <span style="color:var(--red)">Started</span></h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div><div class="step-title">Pick Your Tool</div><div class="step-desc">Choose BandLab (free, browser) to start immediately or download FL Studio / LMMS for more power.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div><div class="step-title">Grab Free Sounds</div><div class="step-desc">Head to Looperman or Freesound and download free loops and samples to build your first beat.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div><div class="step-title">Record Your Track</div><div class="step-desc">Use Audacity or BandLab to record your vocals or instruments over your beat.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div><div class="step-title">Share & Collaborate</div><div class="step-desc">Drop your track in our community, collab with other TJ artists, get feedback and grow.</div></div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div><div class="step-title">Release It</div><div class="step-desc">Use DistroKid to put your music on Spotify and Apple Music. The world needs to hear TJ's sound!</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="community-card fu1">
+        <p class="section-label" style="margin-bottom:12px;">// Artist Community</p>
+        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:16px;">Join the <span style="color:var(--red)">Movement</span></h3>
+        <p style="font-size:13px;color:#484848;line-height:1.7;margin-bottom:20px;">
+          Diablito Studio is more than tools — it's a community. TJ has incredible artists, rappers, producers and musicians who deserve a platform.
+          <br><br>
+          Whether you're a beginner making your first beat or a seasoned rapper looking to collaborate — you belong here. We believe in lifting each other up. No competition, just creation.
+          <br><br>
+          DM us on Instagram or WhatsApp to join the artist community, share your music and get featured on Diablito Hub. All genres welcome — rap, corridos, reggaeton, trap, lo-fi, everything. 🔥
+        </p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;">
+            <span style="font-size:18px;">🎤</span>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#e8e8e8;">Get Featured</div>
+              <div style="font-size:11px;color:#444;">Share your music & get promoted on our platform</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;">
+            <span style="font-size:18px;">🤝</span>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#e8e8e8;">Find Collaborators</div>
+              <div style="font-size:11px;color:#444;">Connect with producers, vocalists & artists in TJ</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--bg3);border:1px solid var(--border);border-radius:12px;">
+            <span style="font-size:18px;">🚀</span>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#e8e8e8;">Release Support</div>
+              <div style="font-size:11px;color:#444;">Guidance on getting your music to streaming platforms</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLAB BANNER -->
+    <div class="collab-banner fu">
+      <h2 class="collab-title">Ready to Create? <span>Let's Go.</span></h2>
+      <p class="collab-desc">Reach out on our socials to join the Diablito artist community. All artists welcome — TJ's music scene is about to go crazy. 🔥😈</p>
+      <div class="social-row">
+        <a class="social-btn ig" href="#">📸 Instagram</a>
+        <a class="social-btn tt" href="#">🎵 TikTok</a>
+        <a class="social-btn wa" href="#">💬 WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a> &nbsp;·&nbsp; Built with 😈 by El Diablito</p>
+</footer>
+</div>
+
+<!-- EL DIABLITO CHATBOT -->
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head">
+      <img class="chat-avatar" src="logo.png" alt="El Diablito">
+      <div style="flex:1">
+        <div class="chat-name">El Diablito 😈</div>
+        <div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="How do I start recording music?">How to record?</button>
+      <button class="qbtn" data-q="What is the best free DAW?">Best free DAW?</button>
+      <button class="qbtn" data-q="How can I collaborate with other artists?">Collab?</button>
+      <button class="qbtn" data-q="How do I release my music?">Release music</button>
+      <button class="qbtn" data-q="How do I place an order?">Smoke Shop</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything...">
+      <button class="chat-send" id="chat-send">➤</button>
+    </div>
+  </div>
+  <div style="position:relative;">
+    <div class="bot-bubble">Ask Me 🔥</div>
+    <button id="mascot-btn">
+      <img src="logo.png" alt="El Diablito">
+    </button>
+  </div>
+</div>
+
+<script src="diablito-bot.js"></script>
+</body>
+</html>
