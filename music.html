@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUSIC VIDEOS — Diablito Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="El Diablito">DIABLITO HUB</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Hub</a></li><li><a href="smoke.html">Shop</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="games.html">Gaming</a></li><li><a href="ai.html">AI Lab</a></li><li><a href="movies.html">Movies</a></li><li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="coming-wrap">
+    <div class="big-icon fu">🎵</div>
+    <h1 class="coming-title fu1">MUSIC VIDEOS <span>Coming Soon</span></h1>
+    <p class="coming-desc fu2">We're building this section out with care. It's going to be amazing — real content, no filler, no paid promotions. Just honest picks for the Diablito community. Stay tuned! 🔥</p>
+    <div class="fu3" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;">
+      <span class="badge badge-soon">🚧 In Progress</span>
+      <span class="badge badge-hot">🔥 Coming Soon</span>
+    </div>
+    <div class="fu4" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <a href="index.html" class="btn btn-primary">← Back to Hub</a>
+      <a href="studio.html" class="btn btn-outline">🎤 Visit Studio</a>
+    </div>
+  </div>
+</div>
+<footer><p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="index.html">← Back to Hub</a></p></footer>
+</div>
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head"><img class="chat-avatar" src="logo.png" alt="El Diablito"><div style="flex:1"><div class="chat-name">El Diablito 😈</div><div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div></div><button class="chat-close" id="chat-close">✕</button></div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="How do I place an order?">Order</button>
+      <button class="qbtn" data-q="Tell me about the Music Studio">Studio</button>
+      <button class="qbtn" data-q="Where are you located?">Location</button>
+      <button class="qbtn" data-q="What are your hours?">Hours</button>
+    </div>
+    <div class="chat-input-row"><input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything..."><button class="chat-send" id="chat-send">➤</button></div>
+  </div>
+  <div style="position:relative;"><div class="bot-bubble">Ask Me 🔥</div><button id="mascot-btn"><img src="logo.png" alt="El Diablito"></button></div>
+</div>
+<script src="diablito-bot.js"></script>
+</body></html>
