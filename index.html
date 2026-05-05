@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diablito Hub 🔥 — Tijuana's #1 Hub</title>
+<meta name="description" content="Diablito Hub — Smoke Shop, Music Studio, Gaming, Movies, Food & AI. Based in Tijuana, BC.">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero-mascot{width:180px;height:auto;margin:0 auto 22px;display:block;border-radius:20px;border:2px solid rgba(255,26,26,0.35);box-shadow:0 0 50px rgba(255,0,0,0.2),0 0 100px rgba(255,0,0,0.08);animation:fadeUp 0.5s 0.06s ease both,mascotHero 4s 1s ease-in-out infinite;}
+@keyframes mascotHero{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-10px) rotate(1deg);}}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding:0 24px 70px;max-width:1100px;margin:0 auto;}
+.hub-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:26px 18px 22px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;text-decoration:none;display:block;color:var(--text);}
+.hub-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;transition:opacity 0.25s;}
+.hub-card:hover{border-color:rgba(255,26,26,0.3);transform:translateY(-5px);box-shadow:0 16px 50px rgba(255,0,0,0.1);}
+.hub-card:hover::after{opacity:1;}
+.hub-card .ci{width:58px;height:58px;margin:0 auto 14px;background:var(--bg3);border:1px solid var(--border);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;transition:all 0.25s;}
+.hub-card:hover .ci{background:#1a0a0a;border-color:rgba(255,26,26,0.25);}
+.hub-card .cn{font-family:var(--font-display);font-size:0.95rem;color:var(--text);margin-bottom:6px;letter-spacing:0.5px;}
+.hub-card .cd{font-size:11px;color:#3a3a3a;margin-bottom:12px;line-height:1.5;}
+.new-badge{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:10px;}
+</style>
+</head>
+<body>
+
+<canvas id="matrix-canvas"></canvas>
+
+<div class="page-wrap">
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="El Diablito">
+    DIABLITO HUB
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Hub</a></li>
+    <li><a href="smoke.html">Shop</a></li>
+    <li><a href="studio.html">Studio</a></li>
+    <li><a href="games.html">Gaming</a></li>
+    <li><a href="ai.html">AI Lab</a></li>
+    <li><a href="movies.html">Movies</a></li>
+    <li><a href="food.html">Food</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <p class="hero-eyebrow">Tijuana, BC — Est. 2024</p>
+    <img class="hero-mascot" src="logo.png" alt="El Diablito — Mascot of Diablito Hub">
+    <h1 class="hero-title">
+      <span class="outline">DIABLITO</span>
+      <span class="solid">HUB</span>
+    </h1>
+    <p class="hero-sub">Smoke · Studio · Gaming · AI · Movies · Food</p>
+    <p class="hero-desc">Tijuana's all-in-one hub for smoke, music, entertainment, gaming and AI — built by El Diablito, for the real ones.</p>
+    <div class="hero-badges">
+      <span class="badge badge-live"><span class="pulse"></span>Live Now</span>
+      <span class="badge badge-hot">🔥 Tijuana's #1</span>
+      <span class="badge badge-gold">😈 El Diablito</span>
+    </div>
+  </div>
+
+  <div class="stat-strip fu">
+    <div class="stat"><span class="stat-num">7</span><div class="stat-lbl">Sections</div></div>
+    <div class="stat"><span class="stat-num">24/7</span><div class="stat-lbl">Online</div></div>
+    <div class="stat"><span class="stat-num">TJ</span><div class="stat-lbl">Based</div></div>
+    <div class="stat"><span class="stat-num">FREE</span><div class="stat-lbl">Always</div></div>
+  </div>
+
+  <div class="hub-grid">
+    <a class="hub-card fu1" href="smoke.html">
+      <div class="ci">🔥</div>
+      <div class="cn">Smoke Shop</div>
+      <div class="cd">Premium products, best prices in TJ.</div>
+      <span class="badge badge-live" style="font-size:9px">Live</span>
+    </a>
+    <a class="hub-card fu2" href="studio.html">
+      <div class="new-badge">NEW</div>
+      <div class="ci">🎤</div>
+      <div class="cn">Music Studio</div>
+      <div class="cd">Record beats, create music, collab with artists.</div>
+      <span class="badge badge-hot" style="font-size:9px">🔥 New</span>
+    </a>
+    <a class="hub-card fu3" href="games.html">
+      <div class="ci">🎮</div>
+      <div class="cn">Gaming Zone</div>
+      <div class="cd">RTX 3070 benchmarks, reviews & builds.</div>
+      <span class="badge badge-blue" style="font-size:9px">RTX 3070</span>
+    </a>
+    <a class="hub-card fu4" href="ai.html">
+      <div class="ci">🤖</div>
+      <div class="cn">AI Lab</div>
+      <div class="cd">Local + online AI tools, demos & experiments.</div>
+      <span class="badge badge-blue" style="font-size:9px">Online</span>
+    </a>
+    <a class="hub-card fu5" href="movies.html">
+      <div class="ci">🎬</div>
+      <div class="cn">Movies</div>
+      <div class="cd">Reviews, streaming picks & top lists.</div>
+      <span class="badge badge-soon" style="font-size:9px">Soon</span>
+    </a>
+    <a class="hub-card fu5" href="music.html">
+      <div class="ci">🎵</div>
+      <div class="cn">Music Videos</div>
+      <div class="cd">Curated videos & local TJ artists.</div>
+      <span class="badge badge-soon" style="font-size:9px">Soon</span>
+    </a>
+    <a class="hub-card fu6" href="food.html">
+      <div class="ci">🍔</div>
+      <div class="cn">Food</div>
+      <div class="cd">Best spots in Tijuana — real local picks.</div>
+      <span class="badge badge-soon" style="font-size:9px">Soon</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>🔥 Diablito Hub — Tijuana, BC &nbsp;·&nbsp; <a href="https://github.com/diablito-smoke-shop">GitHub</a> &nbsp;·&nbsp; Built with 😈 by El Diablito</p>
+</footer>
+</div>
+
+<!-- EL DIABLITO CHATBOT -->
+<div id="diablito-bot">
+  <div id="chat-panel">
+    <div class="chat-head">
+      <img class="chat-avatar" src="logo.png" alt="El Diablito">
+      <div style="flex:1">
+        <div class="chat-name">El Diablito 😈</div>
+        <div class="chat-status"><span class="sdot"></span>Online &amp; Ready to Help</div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+    <div class="quick-btns">
+      <button class="qbtn" data-q="How do I place an order?">How to order?</button>
+      <button class="qbtn" data-q="What products do you carry?">Products</button>
+      <button class="qbtn" data-q="Where are you located?">Location</button>
+      <button class="qbtn" data-q="Tell me about the Music Studio">Studio</button>
+      <button class="qbtn" data-q="What are your hours?">Hours</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chat-input" placeholder="Ask El Diablito anything...">
+      <button class="chat-send" id="chat-send">➤</button>
+    </div>
+  </div>
+  <div style="position:relative;">
+    <div class="bot-bubble">Ask Me 🔥</div>
+    <button id="mascot-btn">
+      <img src="logo.png" alt="El Diablito">
+    </button>
+  </div>
+</div>
+
+<script src="diablito-bot.js"></script>
+</body>
+</html>
